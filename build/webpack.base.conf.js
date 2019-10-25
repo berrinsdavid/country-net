@@ -10,7 +10,9 @@ function resolve (dir) {
 
 const webpack = require('webpack');
 
-module.exports = {
+// vux2.xx
+const vuxLoader = require('vux-loader')
+const webpackConfig =  {
   context: path.resolve(__dirname, '../'),
   entry: {
     app: './src/main.js'
@@ -90,3 +92,7 @@ module.exports = {
     child_process: 'empty'
   }
 }
+
+module.exports = vuxLoader.merge(webpackConfig, {
+  plugins: ['vux-ui']
+})

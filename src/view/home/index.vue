@@ -1,5 +1,6 @@
 <template>
 	<div class="home">
+		<x-header>This is the page title.</x-header>
 		<div class="app">首页</div>
 		<div class="epp">
 			<component :is="keyfeature"></component>
@@ -12,13 +13,18 @@
 import {keyfeature} from '../../public/index'   //组件
 import * as api from './api'   //接口api
 import * as utils from '../../utils'   //公共方法
+
+import { XHeader } from 'vux'
 export default {
 	name: 'home',
 	created() {
     },
     mounted () {
 		this.masterdata()
-    },
+	},
+	components: {
+		XHeader
+	},
     computed: {      
         keyfeature() {
             return keyfeature
