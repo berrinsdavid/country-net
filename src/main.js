@@ -3,7 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-
+import $ from 'jquery'
+import less from 'less'
+// Vue.use($)
+Vue.use(less)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

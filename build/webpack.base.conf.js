@@ -8,7 +8,7 @@ function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-
+const webpack = require('webpack');
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
@@ -29,6 +29,16 @@ module.exports = {
       '@': resolve('src'),
     }
   },
+  plugins: [
+      new webpack.ProvidePlugin({
+          $: 'jquery',
+          jQuery: 'jquery'
+      }),
+      // new vConsolePlugin({
+      //     filter: [],  // 需要过滤的入口文件
+      //     enable: process.argv[2] !== 'p'
+      // }),
+  ],
   module: {
     rules: [
       {
