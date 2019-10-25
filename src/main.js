@@ -7,7 +7,12 @@ import $ from 'jquery'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import less from 'less'
-// Vue.use($)
+import moment from 'moment'
+Vue.prototype.$moment = moment
+moment.locale('zh-cn');//汉化
+
+
+
 Vue.use(less)
 Vue.use(MintUI)
 Vue.config.productionTip = false

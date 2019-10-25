@@ -2,6 +2,9 @@
 	<div class="home">
 		<x-header>This is the page title.</x-header>
 		<div class="app">首页</div>
+		<div>
+			{{msg}}
+		</div>
 		<div class="epp">
 			<component :is="keyfeature"></component>
 		</div>
@@ -36,7 +39,7 @@ export default {
     },
   	data () {
 		return {
-			msg: 'q'
+			msg: this.$moment("12-25-1995", "MM-DD-YYYY").format('MM月DD日')
 		}
 	},
 	methods: {
