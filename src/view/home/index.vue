@@ -1,7 +1,10 @@
 <template>
-	<div class="hello">
-		<h1>首页</h1>
-		<component :is="keyfeature"></component>
+	<div class="home">
+		<div class="app">首页</div>
+		<div class="epp">
+			<component :is="keyfeature"></component>
+		</div>
+		
 	</div>
 </template>
 
@@ -52,7 +55,19 @@ export default {
 </script>
 
 <style scoped lang="less">
-	.hello{
-		background: red;
+	.home{
+		width: 100%;
+		height: 100%;
+		position: relative;
+		.app{
+			width: 1rem;
+			height: 1rem;
+			font-size: 0.35rem;
+			background: red;
+		}
+		.epp{
+			width: 5rem;
+		}
 	}
+	
 </style>
