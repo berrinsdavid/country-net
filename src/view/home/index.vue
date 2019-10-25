@@ -5,7 +5,7 @@
 		<div class="epp">
 			<component :is="keyfeature"></component>
 		</div>
-		
+		<mt-button type="primary">primary</mt-button>
 	</div>
 </template>
 
@@ -15,6 +15,7 @@ import * as api from './api'   //接口api
 import * as utils from '../../utils'   //公共方法
 
 import { XHeader } from 'vux'
+import { Button } from 'mint-ui';
 export default {
 	name: 'home',
 	created() {
@@ -23,7 +24,7 @@ export default {
 		this.masterdata()
 	},
 	components: {
-		XHeader
+		XHeader,Button
 	},
     computed: {      
         keyfeature() {
