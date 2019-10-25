@@ -1,4 +1,4 @@
-# country-net
+# my-project
 
 ## Project setup
 ```
