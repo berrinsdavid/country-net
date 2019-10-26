@@ -5,7 +5,9 @@
 </template>
 
 <script>
+import components from './public/index'   //组件
 export default {
+  mixins: [components],
   name: 'App'
 }
 </script>

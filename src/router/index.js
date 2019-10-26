@@ -1,10 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import { jslog } from '@/config/utils'
 Vue.use(Router)
 
 let routes = []
-
 // (?!components)\.vue$
 importPages(require.context('../view', true, /.vue$/, 'lazy'))
 function importPages(r) {
@@ -13,16 +11,19 @@ function importPages(r) {
         routes.push({ path: (key.split('.'))[1].split('/index')[0], component: () => r(key) })
     })
 }
-// 把组件去掉
-const pageRoutes = routes.filter(({path}) => path.indexOf('components') === -1)
-// console.log(pageRoutes)
-// if (!routes.length) {
-    // jslog({ title: '1frontError:router未创建成功' })
-// }
+
 const router = new Router({
     mode: 'history',
     routes: [
-        ...pageRoutes,
+        ...routes,
+        {
+            path: '/',
+            component: resolve => require(['../view/home/index.vue'], resolve) // 首页
+        },
+        {
+            path: '*',
+            component: resolve => require(['../view/404/404.vue'], resolve) // 404
+        },
     ]
 })
 

@@ -1,19 +1,16 @@
-let publics = {};
-importPage(require.context('../public', true, /\.vue$/, 'lazy'))
-
-function importPage(r) {
-    r.keys().forEach(key => {
-        let keyname = key.split('.')[1].split('/')[2]
-        publics[keyname] = () => r(key)
-    })
+import Vue from 'vue'
+export default {
+    created: function() {
+        //  获取文件夹里内容
+        const requireComponent = require.context('../public', true, /\.vue$/)
+        requireComponent.keys().forEach(filePath => {
+            const componentpath = filePath.replace('./', '').replace('.vue', '')
+            const componentName = filePath.replace('./', '').replace('.vue', '').split('/').pop()
+            // 引入文件
+            var myComponent = () => import('../public/' + componentpath + '.vue')
+            // 注册组件
+            Vue.component(componentName, myComponent)
+        })
+    }
 }
 
-// import './../public/formework/index'
-
-// 首页面 home
-export const keyfeature = publics.keyfeature    // 首页列表
-
-
-
-//电费电量
-// export const keyfeature = publics.keyfeature    // 组件1

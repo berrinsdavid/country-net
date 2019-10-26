@@ -6,22 +6,22 @@
 			{{msg}}
 		</div>
 		<div class="epp">
-			<component :is="keyfeature"></component>
+			<keyfeature/>
 		</div>
 		<mt-button type="primary">primary</mt-button>
 	</div>
 </template>
 
 <script>
-import {keyfeature} from '../../public/index'   //组件
 import * as api from './api'   //接口api
 import * as utils from '../../utils'   //公共方法
 
 import { XHeader } from 'vux'
 import { Button } from 'mint-ui';
 export default {
-	name: 'home',
 	created() {
+		console.log(this.$store.state.aaa,'公共数据')
+		console.log(this.$store.state.home.bbb,'模块化自己页面的数据')
     },
     mounted () {
 		this.masterdata()
@@ -31,7 +31,7 @@ export default {
 	},
     computed: {      
         keyfeature() {
-            return keyfeature
+            // return keyfeature
         }
 	},
 	watch:{
@@ -51,10 +51,10 @@ export default {
         enableScrollBars(){
             $('.illumePage').css("position","static")
         },
-		async masterdata() { // 获取助力好友信息
+		async masterdata() { 
 			let formData = {
 			}
-			console.log(api.home)
+			console.log(api.home,'接口名字')
             // const res = await lib.HTTP(`${conf.server}${api.home}`, formData);
             // if(res.code == 200) {}
         },

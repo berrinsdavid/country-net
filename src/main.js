@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store/index'
 import $ from 'jquery'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
@@ -10,7 +11,6 @@ import less from 'less'
 import moment from 'moment'
 Vue.prototype.$moment = moment
 moment.locale('zh-cn');//汉化
-
 
 
 Vue.use(less)
@@ -21,6 +21,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
