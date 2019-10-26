@@ -21,8 +21,11 @@ import { Button } from 'mint-ui';
 export default {
 	created() {
 		console.log(this.$store.state.aaa,'公共数据')
+		this.$store.state.aaa = '22222222'
+		console.log(this.$store.state.aaa,'公共数据')
 		console.log(this.$store.state.home.bbb,'模块化自己页面的数据')
-		console.log(process.env.NODE_ENV,'process.env.NODE_ENV')
+		this.$store.state.home.bbb = '3333333333'
+		console.log(this.$store.state.home.bbb,'模块化自己页面的数据')
     },
     mounted () {
 		this.masterdata()
