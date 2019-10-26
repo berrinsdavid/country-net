@@ -22,6 +22,7 @@ export default {
 	created() {
 		console.log(this.$store.state.aaa,'公共数据')
 		console.log(this.$store.state.home.bbb,'模块化自己页面的数据')
+		console.log(process.env.NODE_ENV,'process.env.NODE_ENV')
     },
     mounted () {
 		this.masterdata()
@@ -55,7 +56,8 @@ export default {
 			let formData = {
 			}
 			console.log(api.home,'接口名字')
-            // const res = await lib.HTTP(`${conf.server}${api.home}`, formData);
+			console.log(utils.server)
+            // const res = await lib.HTTP(`${utils.server}${api.home}`, formData);
             // if(res.code == 200) {}
         },
        

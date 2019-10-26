@@ -28,3 +28,19 @@ export const HTTP = (url, data, type) => {
 //     const res = await lib.HTTP(`${conf.server}${api.getBaseInfo}`, formData)
 //     console.log(data)
 // }
+
+
+
+
+/** 
+ * 封装线上线下域名 
+ */
+const getGlobalUri = () => {
+    switch (process.env.NODE_ENV) {
+      case 'development':
+        return 'http://devapi.cn'
+      default:
+        return 'http://api.cn'
+    }
+}
+export const server = getGlobalUri()
